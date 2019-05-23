@@ -1,0 +1,48 @@
+<html>
+	<body onload='load()'>
+	<script>
+	function klikniecie(typ)
+	{
+		var idx = window.location.href.indexOf('p=');
+		if(idx > -1)
+		{
+			window.location.href = window.location.href.split('?p=')[0] + '?p=' + typ;
+		}
+		else
+		{
+			window.location.href = window.location.href + '?p=' + typ;
+		}
+	}
+	function load()
+	{
+		var url = new URL(window.location.href);
+		var p = url.searchParams.get("p");
+		if(p)
+		{
+			var e = document.getElementById('wynik');
+			if(e)
+			{
+				e.style.display = 'block';
+				e.innerText = 'Wynik: ' + p;
+			}
+		}
+	}
+	</script>
+		<table>
+			<tr>
+				<td>
+					<input type='image' src='https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/shelter_stone-key-item-sekiro-wiki-guide.png' onclick="klikniecie(1); return false;" style="width:20px;heigth:20px;">
+				</td>
+				<td>
+					<input type='image' src='https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/shelter_stone-key-item-sekiro-wiki-guide.png' onclick="klikniecie(2); return false;" style="width:20px;heigth:20px;">
+				</td>
+				<td>
+					<input type='image' src='https://sekiroshadowsdietwice.wiki.fextralife.com/file/Sekiro-Shadows-Die-Twice/shelter_stone-key-item-sekiro-wiki-guide.png' onclick="klikniecie(3); return false;" style="width:20px;heigth:20px;">
+				</td>
+			</tr>
+		</table>
+		<div id='wynik' style='display:none;width:200px;heigth:50px;'>
+			Wynik
+		</div>
+	</body>
+</html>
